@@ -2,7 +2,7 @@ package bank;
 
 public class CurrentAccount extends Account implements Transaction{
 
-    private double balance;
+    private double balance; //
 
     CurrentAccount(Client owner, String accountId) {
 

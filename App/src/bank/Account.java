@@ -14,14 +14,14 @@ public abstract class  Account {
 
     }
 
-    String getAccountId(){
+   public  String getAccountId(){
 
         return accountId;
 
     }
 
 
-    void displayInfo(){
+    public void displayInfo(){
 
         System.out.println("Account Id : "+ getAccountId());
 
