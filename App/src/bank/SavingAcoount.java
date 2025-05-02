@@ -56,4 +56,39 @@ public class SavingAcoount extends Account implements Transaction{
         }
 
     }
+
+    @Override
+    public void transferToanotherAccount(Account account, double amount) {
+
+        if (amount <= 0)
+        {
+
+            System.out.println("Enter  a valid amount");
+
+        }
+        else
+        {
+
+            if (this.savingBalance < amount)
+            {
+
+                System.out.println("Balance insufficant for this transaction ");
+
+            }
+            else
+            {
+                CurrentAccount currentAccount = (CurrentAccount) account;
+
+                this.savingBalance -= amount;
+
+                currentAccount.balance += amount;
+
+                System.out.println("Your transaction of "+amount+"$ has been made successfully");
+
+
+            }
+
+    }
+}
+
 }
