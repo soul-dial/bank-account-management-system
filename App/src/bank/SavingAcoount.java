@@ -19,4 +19,41 @@ public class SavingAcoount extends Account implements Transaction{
     }
 
 
+    public void deposit(double amount){
+
+        if( amount <0 )
+        {
+            System.out.println("Enter a valid amount ");
+
+        }
+
+        else
+        {
+            savingBalance += amount;
+
+            System.out.println("Your deposit of "+ amount+"$"+" has been made successfully");
+
+            this.getSavingBalance();
+
+        }
+
+
+    }
+
+    @Override
+    public void withdraw(double amount) {
+
+        if( amount < 0)
+        {
+            System.out.println("First Enter a valid amount");
+            System.out.println("And transfert the money on your Current Account ");
+            System.out.println( "Made your withdraw on your Current Acoount");
+
+        }else {
+
+            System.out.println( "Made your withdraw on your Current Acoount");
+
+        }
+
+    }
 }
