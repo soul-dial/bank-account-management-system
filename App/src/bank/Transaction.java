@@ -6,5 +6,5 @@ public interface Transaction {
 
     void withdraw(double amount );
 
-    void depositOnanotherAccount( Account account , double amount);
+    void transferToanotherAccount(Account account , double amount);
 }

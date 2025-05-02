@@ -2,7 +2,7 @@ package bank;
 
 public class SavingAcoount extends Account implements Transaction{
 
-    private double savingBalance;
+    double savingBalance;
 
     SavingAcoount(Client owner, String accountId) {
 
@@ -21,7 +21,7 @@ public class SavingAcoount extends Account implements Transaction{
 
     public void deposit(double amount){
 
-        if( amount <0 )
+        if( amount <= 0 )
         {
             System.out.println("Enter a valid amount ");
 
@@ -43,7 +43,7 @@ public class SavingAcoount extends Account implements Transaction{
     @Override
     public void withdraw(double amount) {
 
-        if( amount < 0)
+        if( amount <= 0)
         {
             System.out.println("First Enter a valid amount");
             System.out.println("And transfert the money on your Current Account ");
