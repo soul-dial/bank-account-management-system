@@ -8,7 +8,7 @@ public abstract class Bank {
 
     private static List<Client > clientList = new ArrayList<>();
 
-    private static List<SavingAcoount> savingAcoountsList = new ArrayList<>();
+    private static List<SavingAcoount> savingAccountList = new ArrayList<>();
 
     private static List<CurrentAccount> currentAccountList = new ArrayList<>();
 
@@ -59,7 +59,24 @@ public abstract class Bank {
 
    }
 
+  public void createAccount()
+  {
+      Client owner = createClient();
 
+      String accountId = generateAccountId();
+
+   CurrentAccount cAccount = new CurrentAccount(owner,accountId);
+
+   SavingAcoount sAccount  = new SavingAcoount(owner,accountId);
+
+   this.clientList.add(owner);
+
+   this.savingAccountList.add(sAccount);
+
+   this.currentAccountList.add(cAccount);
+
+
+  }
 
 
 }
