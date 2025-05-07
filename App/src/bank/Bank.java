@@ -17,11 +17,15 @@ public abstract class Bank {
 
         Scanner scanner = new Scanner(System.in);
 
-        String firstName,lastName,phoneNumber,adress;
+        String firstName,middleName,lastName,phoneNumber,adress;
 
         System.out.println("Enter your firstname : ");
 
         firstName = scanner.nextLine().toUpperCase();
+
+        System.out.println("Enter your middlename : ");
+
+        middleName = scanner.nextLine().toUpperCase();
 
         System.out.println("Enter your lastname : ");
 
@@ -36,22 +40,24 @@ public abstract class Bank {
         phoneNumber = scanner.nextLine();
 
 
-        return new Client(firstName,lastName,phoneNumber,adress);
+        return new Client(firstName,middleName,lastName,phoneNumber,adress);
 
     }
 
 
-   private String generateAccountId (){
+   private String generateAccountId ()
+   {
 
      int[]numbers = new int[9];
 
-       for (int i = 0; i < 9; i++) {
+       for (int i = 0; i < 9; i++)
+       {
 
            numbers[i] = (int)(Math.random()*10);
 
        }
 
-   String id = ""+numbers[0]+numbers[1]+numbers[2]
+    String id =""+numbers[0]+numbers[1]+numbers[2]
               +"-"+numbers[3]+numbers[4]+numbers[5]+"-"
               +"-"+numbers[6]+numbers[7]+numbers[8];
 
@@ -77,6 +83,47 @@ public abstract class Bank {
 
 
   }
+
+  private Client findClient()
+  {
+
+    Scanner scanner = new Scanner(System.in);
+
+    String firstname,middlename,lastname;
+
+    Client clientWanted;
+
+      System.out.println("Enter your firstname ");
+
+      firstname = scanner.nextLine().toUpperCase();
+
+      System.out.println("Enter your lastname");
+
+      lastname = scanner.nextLine().toUpperCase();
+
+      System.out.println("Enter your middlename");
+
+      middlename = scanner.nextLine().toUpperCase();
+
+      clientWanted= new Client(firstname,middlename,lastname);
+
+      for (Client client : clientList)
+      {
+         if(client.equals(clientWanted))
+         {
+             clientWanted = client;
+
+         }
+
+      }
+
+      return clientWanted;
+
+  }
+
+
+
+
 
 
 }
