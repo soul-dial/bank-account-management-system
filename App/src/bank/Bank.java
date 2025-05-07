@@ -12,7 +12,6 @@ public abstract class Bank {
 
     private static List<CurrentAccount> currentAccountList = new ArrayList<>();
 
-
     private Client createClient (){
 
         Scanner scanner = new Scanner(System.in);
@@ -87,11 +86,11 @@ public abstract class Bank {
   private Client findClient()
   {
 
-    Scanner scanner = new Scanner(System.in);
+      Scanner scanner = new Scanner(System.in);
 
-    String firstname,middlename,lastname;
+      String firstname,middlename,lastname;
 
-    Client clientWanted;
+      Client clientWanted;
 
       System.out.println("Enter your firstname ");
 
@@ -111,15 +110,58 @@ public abstract class Bank {
       {
          if(client.equals(clientWanted))
          {
-             clientWanted = client;
+              clientWanted = client;
 
+
+             return clientWanted;
          }
-
       }
 
-      return clientWanted;
-
+      return null;
   }
+
+
+  public void deleteAccount(){
+
+        Client clientFind = findClient();
+
+        String clientFindId= null;
+
+        if (clientFind ==null)
+        {
+
+
+        }else
+        {
+          for(CurrentAccount wantedAccount: currentAccountList)
+          {
+
+              if(wantedAccount.owner.equals(clientFind))
+              {
+
+              clientFindId = wantedAccount.accountId;
+
+              currentAccountList.remove(wantedAccount);
+
+              }
+          }
+
+          for (SavingAcoount wantedAcoount : savingAccountList)
+          {
+              if(wantedAcoount.accountId.equals(clientFindId))
+              {
+               savingAccountList.remove(wantedAcoount) ;
+
+
+              }
+
+          }
+
+        }
+
+
+    }
+
 
 
 

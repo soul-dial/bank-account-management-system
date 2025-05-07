@@ -26,7 +26,7 @@ public class CurrentAccount extends Account implements Transaction{
 
         }else{
 
-           balance += amount;
+            balance += amount;
 
             System.out.println("Your deposit of "+ amount+"$"+" has been made successfully");
 
@@ -63,9 +63,7 @@ public class CurrentAccount extends Account implements Transaction{
 
            }
 
-
        }
-
 
     }
 

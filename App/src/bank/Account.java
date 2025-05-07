@@ -2,9 +2,9 @@ package bank;
 
 public abstract class  Account {
 
-    private Client owner;
+     Client owner;
 
-    private String accountId;
+     String accountId;
 
     Account(Client owner, String accountId){
 
