@@ -25,11 +25,11 @@ public abstract class  Account {
 
         System.out.println("Account Id : "+ getAccountId());
 
-        System.out.println("Client Name : "+ owner.getFirstName()+" "+owner.getLastName());
+        System.out.println("Client Name : "+owner.getFirstName()+" "+owner.getLastName());
 
-        System.out.println("Phone number : "+ owner.getPhonenumber() );
+        System.out.println("Phone number : "+owner.getPhonenumber() );
 
-        System.out.println("Adresse : "+ owner.getAdresse());
+        System.out.println("Adresse : "+owner.getAdresse());
 
 
     }

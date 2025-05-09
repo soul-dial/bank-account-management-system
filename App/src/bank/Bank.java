@@ -12,7 +12,7 @@ public abstract class Bank {
 
     private static List<CurrentAccount> currentAccountList = new ArrayList<>();
 
-    private Client createClient (){
+    private static Client createClient (){
 
         Scanner scanner = new Scanner(System.in);
 
@@ -44,17 +44,20 @@ public abstract class Bank {
     }
 
 
-   private String generateAccountId ()
+   private static String generateAccountId ()
    {
 
      int[]numbers = new int[9];
 
        for (int i = 0; i < 9; i++)
        {
+           //genrere randomly 9 chiffres entre 0 et 9 pour remplit le tableau
 
-           numbers[i] = (int)(Math.random()*10);
+            numbers[i] = (int)(Math.random()*10);
 
        }
+
+     //contenation des chiffres du tableau en String
 
     String id =""+numbers[0]+numbers[1]+numbers[2]
               +"-"+numbers[3]+numbers[4]+numbers[5]+"-"
@@ -64,7 +67,7 @@ public abstract class Bank {
 
    }
 
-  public void createAccount()
+  public static void createAccount()
   {
       Client owner = createClient();
 
@@ -74,16 +77,20 @@ public abstract class Bank {
 
    SavingAcoount sAccount  = new SavingAcoount(owner,accountId);
 
-   this.clientList.add(owner);
+   clientList.add(owner);
 
-   this.savingAccountList.add(sAccount);
+   savingAccountList.add(sAccount);
 
-   this.currentAccountList.add(cAccount);
+   currentAccountList.add(cAccount);
+
+   System.out.println("YOUR ACCOUNT HAS BEEN SUCCESSFULLY CREATE!!!!");
+
+   cAccount.displayInfo();
 
 
   }
 
-  private Client findClient()
+  public static Client findClient()
   {
 
       Scanner scanner = new Scanner(System.in);
@@ -121,17 +128,20 @@ public abstract class Bank {
   }
 
 
+
+
   public void deleteAccount(){
 
         Client clientFind = findClient();
 
-        String clientFindId= null;
+        String accountIdTodelete = null;
 
         if (clientFind ==null)
         {
+            System.out.println("THAT ACCOUNT CANNOT BE FOUND");
 
-
-        }else
+        }
+        else
         {
           for(CurrentAccount wantedAccount: currentAccountList)
           {
@@ -139,7 +149,7 @@ public abstract class Bank {
               if(wantedAccount.owner.equals(clientFind))
               {
 
-              clientFindId = wantedAccount.accountId;
+              accountIdTodelete = wantedAccount.accountId;
 
               currentAccountList.remove(wantedAccount);
 
@@ -148,7 +158,7 @@ public abstract class Bank {
 
           for (SavingAcoount wantedAcoount : savingAccountList)
           {
-              if(wantedAcoount.accountId.equals(clientFindId))
+              if(wantedAcoount.accountId.equals(accountIdTodelete))
               {
                savingAccountList.remove(wantedAcoount) ;
 
