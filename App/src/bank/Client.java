@@ -9,6 +9,8 @@ public class Client {
     private String lastName;
     private String phonenumber;
     private String adresse;
+    private CurrentAccount currentAccount ;
+    private SavingAcoount  savingAcoount;
 
     Client(String firstName, String middleName,String lastName, String phonenumber,String adresse ){
 
@@ -38,27 +40,53 @@ public class Client {
 
     }
 
-    String getFirstName() {
+    private String getFirstName() {
         return firstName;
     }
 
-    String getLastName() {
+    private String getLastName() {
         return lastName;
     }
 
-    public String getMiddleName() {
+    private String getMiddleName() {
         return middleName;
     }
 
-    String getPhonenumber() {
+    private String getPhonenumber() {
         return phonenumber;
     }
 
-    String getAdresse() {
+    private String getAdresse() {
         return adresse;
     }
 
+    public void displayInfo() {
 
+        System.out.println("Account Id : " + this.currentAccount.getAccountId());
+
+        System.out.println("Client Name : " + getFirstName() + " " + getLastName());
+
+        System.out.println("Phone number : " + getPhonenumber());
+
+        System.out.println("Adresse : " + getAdresse());
+
+    }
+
+    public CurrentAccount getCurrentAccount() {
+        return currentAccount;
+    }
+
+    public SavingAcoount getSavingAcoount() {
+        return savingAcoount;
+    }
+
+    void setCurrentAccount(CurrentAccount currentAccount) {
+        this.currentAccount = currentAccount;
+    }
+
+    void setSavingAcoount(SavingAcoount savingAcoount) {
+        this.savingAcoount = savingAcoount;
+    }
     @Override
      public boolean equals(Object obj)
     {
@@ -79,6 +107,7 @@ public class Client {
 
         return false;
     }
+
 
 
     @Override

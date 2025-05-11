@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public abstract class Bank {
 
-    private static List<Client > clientList = new ArrayList<>();
+   public static List<Client > clientList = new ArrayList<>();
 
     private static List<SavingAcoount> savingAccountList = new ArrayList<>();
 
@@ -77,6 +77,10 @@ public abstract class Bank {
 
    SavingAcoount sAccount  = new SavingAcoount(owner,accountId);
 
+   owner.setCurrentAccount(cAccount);
+
+   owner.setSavingAcoount(sAccount);
+
    clientList.add(owner);
 
    savingAccountList.add(sAccount);
@@ -85,7 +89,7 @@ public abstract class Bank {
 
    System.out.println("YOUR ACCOUNT HAS BEEN SUCCESSFULLY CREATE!!!!");
 
-   cAccount.displayInfo();
+   owner.displayInfo();
 
 
   }
