@@ -1,5 +1,7 @@
 package bank;
 
+import java.util.Scanner;
+
 public class SavingAcoount extends Account implements Transaction{
 
     double savingBalance;
@@ -19,29 +21,39 @@ public class SavingAcoount extends Account implements Transaction{
     }
 
 
-    public void deposit(double amount){
+    public void deposit(){
 
-        if( amount <= 0 )
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter amount ");
+
+        double amount = scanner.nextDouble();
+
+        while( amount <= 0 )
         {
             System.out.println("Enter a valid amount ");
 
+            amount = scanner.nextDouble();
+
         }
 
-        else
-        {
             savingBalance += amount;
 
             System.out.println("Your deposit of "+ amount+"$"+" has been made successfully");
 
             this.getSavingBalance();
 
-        }
 
 
     }
 
     @Override
-    public void withdraw(double amount) {
+    public void withdraw() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter amount ");
+
+       double amount = scanner.nextDouble();
 
         if( amount <= 0)
         {
@@ -58,37 +70,42 @@ public class SavingAcoount extends Account implements Transaction{
     }
 
     @Override
-    public void transferToanotherAccount(Account account, double amount) {
+    public void transferToanotherAccount(Account account)
+    {
 
-        if (amount <= 0)
-        {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter amount ");
+
+        double amount = scanner.nextDouble();
+
+        while (amount <= 0) {
 
             System.out.println("Enter  a valid amount");
 
+            amount = scanner.nextDouble();
+
         }
-        else
+
+        if (this.savingBalance < amount)
         {
 
-            if (this.savingBalance < amount)
-            {
+            System.out.println("Balance insufficant for this transaction ");
 
-                System.out.println("Balance insufficant for this transaction ");
+        } else
+        {
+            CurrentAccount currentAccount = (CurrentAccount) account;
 
-            }
-            else
-            {
-                CurrentAccount currentAccount = (CurrentAccount) account;
+            this.savingBalance -= amount;
 
-                this.savingBalance -= amount;
+            currentAccount.balance += amount;
 
-                currentAccount.balance += amount;
-
-                System.out.println("Your transaction of "+amount+"$ has been made successfully");
+            System.out.println("Your transaction of " + amount + "$ has been made successfully");
 
 
-            }
+        }
+
 
     }
-}
 
 }

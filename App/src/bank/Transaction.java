@@ -2,9 +2,9 @@ package bank;
 
 public interface Transaction {
 
-    void deposit(double amount);
+    void deposit();
 
-    void withdraw(double amount );
+    void withdraw();
 
-    void transferToanotherAccount(Account account , double amount);
+    void transferToanotherAccount(Account account );
 }

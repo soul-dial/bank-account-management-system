@@ -1,5 +1,7 @@
 package bank;
 
+import java.util.Scanner;
+
 public class CurrentAccount extends Account implements Transaction{
 
      double balance; //
@@ -18,13 +20,21 @@ public class CurrentAccount extends Account implements Transaction{
     }
 
     @Override
-    public void deposit(double amount) {
+    public void deposit() {
 
-        if(amount <= 0 ){
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter amount ");
+
+        double amount = scanner.nextDouble();
+
+        while (amount <= 0 )
+        {
             System.out.println("Enter a valid amount");
 
-        }else{
+            amount = scanner.nextDouble();
+
+        }
 
             balance += amount;
 
@@ -33,18 +43,25 @@ public class CurrentAccount extends Account implements Transaction{
             this.getBalance();
 
         }
-    }
 
-    public void withdraw(double amount)
+
+    public void withdraw()
     {
+        Scanner scanner = new Scanner(System.in);
 
-       if(amount <= 0)
+        System.out.println("Enter amount ");
+
+        double amount = scanner.nextDouble();
+
+       while (amount <= 0)
        {
 
            System.out.println("Enter a valid amount");
+
+           amount = scanner.nextDouble();
+
        }
-       else
-       {
+
            if (this.balance < amount)
            {
 
@@ -63,21 +80,28 @@ public class CurrentAccount extends Account implements Transaction{
 
            }
 
-       }
+
 
     }
 
     @Override
-    public void transferToanotherAccount(Account account, double amount) {
+    public void transferToanotherAccount(Account account)
+    {
 
-        if (amount <= 0)
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter amount ");
+
+        double amount = scanner.nextDouble();
+
+        while (amount <= 0)
         {
 
             System.out.println("Enter  a valid amount");
 
+            amount = scanner.nextDouble();
         }
-        else
-        {
+
 
            if (this.balance < amount)
            {
@@ -93,15 +117,10 @@ public class CurrentAccount extends Account implements Transaction{
 
                saving.savingBalance += amount;
 
-               System.out.println("Your transaction of "+amount+"$ has been made successfully");
+               System.out.println("Your transaction of "+amount+"$ has been made successfully on your Saving Account");
 
 
            }
-
-
-        }
-
-
 
     }
 }
